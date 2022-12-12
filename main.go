@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"os/signal"
-	"strconv"
 	"strings"
 	"syscall"
 	"time"
@@ -71,13 +70,13 @@ func main() {
 		}
 
 		var (
-			updateText      = update.Message.Text
-			updateChatID    = update.Message.Chat.ID
-			updateMessageID = update.Message.MessageID
-			updateUserID    = update.Message.From.ID
+			updateText       = update.Message.Text
+			updateChatID     = update.Message.Chat.ID
+			updateMessageID  = update.Message.MessageID
+			updateUserID     = update.Message.From.ID
 			isChatBotInGroup = update.Message.Chat.IsGroup() || update.Message.Chat.IsSuperGroup()
-                        isAtChatBot = strings.HasPrefix(update.Message.Text, "@"+bot.Username) || strings.HasSuffix(update.Message.Text, "@"+bot.Username)
-                        isPrivateChat = update.Message.Chat.IsPrivate()
+			isAtChatBot      = strings.HasPrefix(update.Message.Text, "@"+bot.Username) || strings.HasSuffix(update.Message.Text, "@"+bot.Username)
+			isPrivateChat    = update.Message.Chat.IsPrivate()
 		)
 
 		if len(envConfig.TelegramID) != 0 && !envConfig.HasTelegramID(updateUserID) {

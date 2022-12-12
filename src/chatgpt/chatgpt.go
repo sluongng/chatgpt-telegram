@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"time"
@@ -12,8 +13,10 @@ import (
 	"github.com/m1guelpf/chatgpt-telegram/src/sse"
 )
 
-const KEY_ACCESS_TOKEN = "accessToken"
-const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+const (
+	KEY_ACCESS_TOKEN = "accessToken"
+	USER_AGENT       = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:107.0) Gecko/20100101 Firefox/107.0"
+)
 
 type Conversation struct {
 	ID            string
